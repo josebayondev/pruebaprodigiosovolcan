@@ -10,7 +10,6 @@ export const useAuth = () => {
   const login = (userData: User) => {
     setUser(userData)
     setIsAuthenticated(true)
-    // Guardar en localStorage para persistencia
     localStorage.setItem('user', JSON.stringify(userData))
     localStorage.setItem('isAuthenticated', 'true')
   }

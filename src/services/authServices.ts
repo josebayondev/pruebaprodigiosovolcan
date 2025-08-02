@@ -5,7 +5,7 @@ export const authService = {
   // Función para procesar la respuesta de Google
   processGoogleResponse: (credential: string): User => {
     const userInfo: GoogleUser = jwtDecode(credential)
-    
+    // Nos devuelve un objeto User con los datos necesarios
     return {
       id: userInfo.sub,
       email: userInfo.email,
