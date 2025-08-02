@@ -1,12 +1,18 @@
 import { GoogleLogin, type CredentialResponse } from '@react-oauth/google'
+import { authService } from '../services/authServices'
+import { useAuthContext } from '../context/AuthContext'
 
 function LoginPage() {
 
+  const { login } = useAuthContext()
+
   // Función para manejar el éxito del inicio de sesión
   const handleSuccess = (credentialResponse: CredentialResponse) => {
-    console.log('Login Success:', credentialResponse)
-    // Aquí manejaremos la respuesta exitosa
+  if (credentialResponse.credential) {
+    const userData = authService.processGoogleResponse(credentialResponse.credential)
+    login(userData) 
   }
+}
   // Función para manejar el error del inicio de sesión
   const handleError = () => {
     console.log('Login Failed')

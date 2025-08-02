@@ -14,7 +14,7 @@ type AuthContextType = {
 // Creamos el contexto con valor inicial "undefined"
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-// Este componente envolverá tu app y le dará acceso al contexto
+// Este componente envolverá la app y le dará acceso al contexto
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth() // Lógica de login/logout, estado, etc.
 
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 export const useAuthContext = () => {
   const context = useContext(AuthContext)
 
-  // Si lo usas fuera del AuthProvider, lanza error (buenas prácticas)
+  // Si el contexto no está definido, lanzamos un error
   if (!context) {
     throw new Error('useAuthContext debe usarse dentro de <AuthProvider>')
   }
