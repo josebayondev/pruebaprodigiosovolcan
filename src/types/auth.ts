@@ -1,4 +1,4 @@
-// Datos que nos devuelve Google una vez iniciada la sesión
+// Datos que nos devuelve Google
 export interface GoogleUser {
   sub: string           // ID único del usuario
   email: string         // Email del usuario
@@ -6,6 +6,7 @@ export interface GoogleUser {
   picture: string       // URL de la foto de perfil
   given_name: string    // Nombre
   family_name: string   // Apellido
+  exp?: number          // Fecha de expiración del token (opcional)
 }
 
 // Datos que usaremos en nuestra app
@@ -16,4 +17,10 @@ export interface User {
   picture: string
   firstName: string
   lastName: string
+}
+
+export interface UserSession {
+  user: User
+  expiresAt: number
+  createdAt: number
 }
