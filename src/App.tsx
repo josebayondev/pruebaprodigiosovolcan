@@ -1,4 +1,5 @@
 import LoginPage from "./components/LoginPage"
+import UserDashboard from "./components/UserDashboard"
 import { useAuthContext } from "./context/AuthContext"
 
 
@@ -17,15 +18,7 @@ if (isLoading) {
 
 // Si está autenticado
 if (isAuthenticated && user) {
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md text-center">
-        <h1>¡Hola, {user.name}!</h1>
-        <p>{user.email}</p>
-        {/* Botón de logout lo agregaremos después */}
-      </div>
-    </div>
-  )
+  return <UserDashboard />
 }
 
 // Si no está autenticado
