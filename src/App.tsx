@@ -1,11 +1,9 @@
 
-import './App.css'
-
 function App() {
 
   return (
     <>
-      <p>Hola, Prodigioso Volcán</p>
+      <p className='bg-black text-white p-4'>Hola, Prodigioso Volcán</p>
     </>
   )
 }
