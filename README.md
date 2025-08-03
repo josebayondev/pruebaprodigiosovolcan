@@ -72,7 +72,22 @@ src/
 
 ```bash
 npm run dev      # Servidor de desarrollo
+npm run build    # Construir para producción
+npm run preview  # Servidor de vista previa
 ```
+
+## 🐳 Docker
+
+Para ejecutar la aplicación con Docker:
+
+```bash
+# Ejecutar con Docker Compose
+docker compose up
+
+# La aplicación estará disponible en: http://localhost:9778
+```
+
+**Nota:** Antes de usar Docker, configura en Google OAuth agregando `http://localhost:9778` como origen autorizado en Google Cloud Console.
 
 ---
 

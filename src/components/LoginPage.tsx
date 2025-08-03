@@ -3,6 +3,7 @@
 import { GoogleLogin, type CredentialResponse } from "@react-oauth/google";
 import { authService } from "../services/authServices";
 import { useAuthContext } from "../context/AuthContext";
+import welcomeIllustration from "../assets/img/welcome-illustration.svg";
 
 function LoginPage() {
   const { login } = useAuthContext();
@@ -26,7 +27,7 @@ function LoginPage() {
      <div className="bg-white bg-opacity-90 rounded-2xl shadow-2xl max-w-md w-full text-center animate-fade-in p-6 sm:p-10 border border-gray-100 border-opacity-30 transition-shadow duration-300 hover:shadow-xl">
         {/* Ilustración */}
         <img
-          src="src/assets/img/welcome-illustration.svg"
+          src={welcomeIllustration} 
           alt="Bienvenida"
           className="mx-auto mb-6 w-20 mt-2"
         />

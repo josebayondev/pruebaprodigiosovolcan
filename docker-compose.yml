@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  prodigiosovolcan:
+    build: .
+    container_name: prodigiosovolcan
+    ports:
+      - "9778:9778"
+    environment:
+      - VITE_GOOGLE_CLIENT_ID=${VITE_GOOGLE_CLIENT_ID}
+      - VITE_PORT=9778
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
