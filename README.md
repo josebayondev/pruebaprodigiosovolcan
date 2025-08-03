@@ -1,6 +1,6 @@
 # 🌋 Login Prodigioso Volcán - SSO con Google
 
-**Proyecto de prueba técnica desarrollado por José I. Bayón**
+**Proyecto de prueba técnica desarrollado por Jose I. Bayón**
 
 Aplicación React con TypeScript que implementa autenticación SSO (Single Sign-On) a través de Google OAuth, con persistencia de sesión y navegación condicional.
 
@@ -23,6 +23,10 @@ cd login-prodigioso-volcan
 ### 2. Instalar dependencias
 ```bash
 npm install
+npm install @react-oauth/google
+npm install jwt-decode
+npm install -D tailwindcss autoprefixer postcss
+npx tailwindcss init -p
 ```
 
 ### 3. Configurar variables de entorno
@@ -65,6 +69,8 @@ src/
 ├── hooks/          # Hooks personalizados
 ├── services/       # Lógica de autenticación
 ├── types/          # Interfaces TypeScript
+├── assets/         # Recursos estáticos (imágenes, etc.)
+├── App.tsx         # Componente principal
 └── main.tsx        # Punto de entrada
 ```
 
@@ -81,7 +87,7 @@ npm run preview  # Servidor de vista previa
 Para ejecutar la aplicación con Docker:
 
 ```bash
-# Ejecutar con Docker Compose
+# Abrir Docker y después ejecutar con Docker Compose
 docker compose up
 
 # La aplicación estará disponible en: http://localhost:9778
@@ -91,4 +97,4 @@ docker compose up
 
 ---
 
-**Desarrollado con ❤️ por José I. Bayón**
+**Desarrollado con ❤️ por Jose I. Bayón**

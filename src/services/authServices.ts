@@ -1,4 +1,4 @@
-// Archivo para manejar la autenticación con Google
+// Archivo que recibe el token de Google, lo decodifica y devuelve un objeto User
 
 import { jwtDecode } from 'jwt-decode'
 import type { GoogleUser, User } from '../types/auth'

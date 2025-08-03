@@ -17,13 +17,14 @@ function LoginPage() {
       login(userData);
     }
   };
+
   // Función para manejar el error del inicio de sesión
   const handleError = () => {
-    console.log("Login Failed");
+    alert("Error al iniciar sesión con Google. Por favor, inténtalo de nuevo.");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4 relative">
+    <div className="min-h-screen bg-gradient-to-br from-[#f3f4f6] to-[#d1d5db] flex items-center justify-center px-4 relative">
      <div className="bg-white bg-opacity-90 rounded-2xl shadow-2xl max-w-md w-full text-center animate-fade-in p-6 sm:p-10 border border-gray-100 border-opacity-30 transition-shadow duration-300 hover:shadow-xl">
         {/* Ilustración */}
         <img
@@ -55,11 +56,11 @@ function LoginPage() {
           />
         </div>
 
-        <p className="mt-8 text-xs text-gray-400">
+        <p className="mt-8 text-xs text-gray-00">
           © {new Date().getFullYear()}. Jose I. Bayón.
         </p>
       </div>
-      <p className="absolute bottom-4 text-xs text-gray-400 text-center w-full sm:w-auto sm:right-5">
+      <p className="absolute bottom-4 text-xs text-gray-500 text-center w-full sm:w-auto sm:right-5">
         Prueba técnica desarrollada por Jose I. Bayón
       </p>
     </div>

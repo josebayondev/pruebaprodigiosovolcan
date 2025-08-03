@@ -1,7 +1,6 @@
 // Archivo que permite compartir el estado de autenticación en toda la app
 
 /* eslint-disable react-refresh/only-export-components */
-
 import { createContext, useContext } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import type { User } from '../types/auth'

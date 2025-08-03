@@ -6,7 +6,7 @@ function UserDashboard() {
   const { user, logout } = useAuthContext();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4 relative">
+    <div className="min-h-screen bg-gradient-to-br from-[#f3f4f6] to-[#d1d5db] flex items-center justify-center px-4 relative">
       <div className="bg-white bg-opacity-90 rounded-2xl shadow-2xl max-w-md w-full text-center animate-fade-in p-6 sm:p-10 border border-gray-100 border-opacity-30 transition-shadow duration-300 hover:shadow-xl">
         <img
           src={user?.picture}
@@ -22,13 +22,13 @@ function UserDashboard() {
         </p>
 
         <button
-          className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-colors"
+          className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-colors hover:scale-105"
           onClick={logout}
         >
           Cerrar Sesión
         </button>
       </div>
-      <p className="absolute bottom-4 text-xs text-gray-400 text-center w-full sm:w-auto sm:right-5">
+      <p className="absolute bottom-4 text-xs text-gray-500text-center w-full sm:w-auto sm:right-5">
         Prueba técnica desarrollada por Jose I. Bayón
       </p>
     </div>
