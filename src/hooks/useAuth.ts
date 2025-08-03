@@ -19,7 +19,7 @@ export const useAuth = () => {
     // Crear sesión con expiración (24 horas)
     const sessionData: UserSession = {
       user: userData,
-      expiresAt: Date.now() + 24 * 60 * 60 * 1000, //
+      expiresAt: Date.now() + 24 * 60 * 60 * 1000,
       createdAt: Date.now(),
     };
 
