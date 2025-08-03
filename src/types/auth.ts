@@ -1,12 +1,14 @@
+// Archivo que define los tipos de datos relacionados con la autenticación
+
 // Datos que nos devuelve Google
 export interface GoogleUser {
-  sub: string           // ID único del usuario
-  email: string         // Email del usuario
-  name: string          // Nombre completo
-  picture: string       // URL de la foto de perfil
-  given_name: string    // Nombre
-  family_name: string   // Apellido
-  exp?: number          // Fecha de expiración del token (opcional)
+  sub: string           
+  email: string         
+  name: string          
+  picture: string       
+  given_name: string    
+  family_name: string   
+  exp?: number          
 }
 
 // Datos que usaremos en nuestra app
@@ -19,6 +21,7 @@ export interface User {
   lastName: string
 }
 
+// Datos de la sesión del usuario
 export interface UserSession {
   user: User
   expiresAt: number

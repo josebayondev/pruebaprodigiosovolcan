@@ -1,3 +1,5 @@
+// Archivo para manejar la autenticación con Google
+
 import { jwtDecode } from 'jwt-decode'
 import type { GoogleUser, User } from '../types/auth'
 
@@ -9,12 +11,12 @@ export const authService = {
       // Validar que el token no haya expirado
       const currentTime = Date.now() / 1000
       if (userInfo.exp && userInfo.exp < currentTime) {
-        throw new Error('Token expired')
+        throw new Error('Token expirado')
       }
       
       // Validar campos requeridos
       if (!userInfo.sub || !userInfo.email || !userInfo.name) {
-        throw new Error('Invalid token data')
+        throw new Error('Token inválido')
       }
       
       return {
@@ -26,8 +28,8 @@ export const authService = {
         lastName: userInfo.family_name
       }
     } catch (error) {
-      console.error('Error processing Google response:', error)
-      throw new Error('Failed to process authentication')
+      console.error('Falla al procesar la respuesta de Google:', error)
+      throw new Error('Falla al procesar la respuesta de Google')
     }
   }
 }

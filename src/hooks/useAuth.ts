@@ -1,3 +1,7 @@
+// Archivo hook que gestiona la autenticación del usuario, 
+// mantiene el estado y controla la sesión usando localStorage 
+// para que la sesión persista aunque cierres la pestaña o recargues.
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import type { User, UserSession } from "../types/auth";

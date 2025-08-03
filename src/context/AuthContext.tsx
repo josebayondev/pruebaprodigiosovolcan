@@ -1,3 +1,7 @@
+// Archivo que permite compartir el estado de autenticación en toda la app
+
+/* eslint-disable react-refresh/only-export-components */
+
 import { createContext, useContext } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import type { User } from '../types/auth'
@@ -25,8 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-// Hook para acceder fácilmente al contexto desde cualquier componente
-// eslint-disable-next-line react-refresh/only-export-components
+// Hook para acceder al contexto desde cualquier componente
 export const useAuthContext = () => {
   const context = useContext(AuthContext)
 
@@ -34,6 +37,6 @@ export const useAuthContext = () => {
   if (!context) {
     throw new Error('useAuthContext debe usarse dentro de <AuthProvider>')
   }
-
+  
   return context
 }
