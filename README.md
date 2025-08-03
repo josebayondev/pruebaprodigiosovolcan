@@ -16,7 +16,7 @@ Aplicación React con TypeScript que implementa autenticación SSO (Single Sign-
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/josebayondev/pruebaprodigiosovolcan.git
 cd login-prodigioso-volcan
 ```
 
@@ -72,9 +72,6 @@ src/
 
 ```bash
 npm run dev      # Servidor de desarrollo
-npm run build    # Build para producción
-npm run preview  # Preview de la build
-npm run lint     # Linting con ESLint
 ```
 
 ---
