@@ -107,12 +107,12 @@ docker compose up
 **🚀 Pasos OBLIGATORIOS (en este orden):**
 
 ```bash
-# 1. Cambiar a rama nginx
-git checkout nginx
+# 1. Crear archivo .env.docker con tu Google Client ID
+echo "VITE_GOOGLE_CLIENT_ID=tu_google_client_id_aqui" > .env.docker
+echo "VITE_PORT=9778" >> .env.docker
 
 # 2. ⚠️ OBLIGATORIO: Generar certificados SSL primero
-# (El script setup-ssl.sh crea los certificados automáticamente)
-# Los certificados se crean automáticamente en certbot/ (excluidos de git)
+# (El script crea la carpeta certbot/ y los certificados automáticamente)
 chmod +x scripts/setup-ssl.sh && ./scripts/setup-ssl.sh
 
 # 3. Levantar infraestructura completa
