@@ -2,7 +2,6 @@
 
 **Proyecto de prueba técnica desarrollado por Jose I. Bayón**
 
-Aplicación React con TypeScript que implementa autenticación SSO (Single Sign-On) a través de Google OAuth, con persistencia de sesión y navegación condicional.
 
 ## 🚀 Tecnologías utilizadas
 
@@ -18,6 +17,7 @@ Aplicación React con TypeScript que implementa autenticación SSO (Single Sign-
 ```bash
 git clone https://github.com/josebayondev/pruebaprodigiosovolcan.git
 cd login-prodigioso-volcan
+Acceder a la rama main para la primera parte de la prueba.
 ```
 
 ### 2. Instalar dependencias
@@ -97,45 +97,34 @@ docker compose up
 
 ## EXTRA: Infraestructura con Nginx + HTTPS
 
-### ⚡ PARA EVALUADOR - Infraestructura HTTPS
+*Incluye nginx.conf y todos los archivos de configuración en la rama nginx.*
 
-**🚀 Pasos rápidos para probar:**
+**🚀 Pasos OBLIGATORIOS (en este orden):**
 
 ```bash
 # 1. Cambiar a rama nginx
 git checkout nginx
 
-# 2. Configurar subdominio local
-echo "127.0.0.1 login.localhost" | sudo tee -a /etc/hosts
-
-# 3. Generar certificados SSL (automático)
+# 2. ⚠️ OBLIGATORIO: Generar certificados SSL primero
+# (El script setup-ssl.sh crea los certificados automáticamente)
+# Los certificados se crean automáticamente en certbot/ (excluidos de git)
 chmod +x scripts/setup-ssl.sh && ./scripts/setup-ssl.sh
 
-# 4. Levantar infraestructura completa
+# 3. Levantar infraestructura completa
 docker-compose -f docker-compose.nginx.yml up --build
 
-# 5. Acceder a: https://127.0.0.1
+# 4. Acceder a: https://127.0.0.1
+
 ```
-
-**⚠️ Nota:** Tu navegador mostrará "No seguro" porque es certificado auto-firmado. 
-Hacer clic en "Avanzado" → "Continuar" para acceder.
-
-### 🎯 Arquitectura implementada:
-
-- **Nginx** como proxy inverso (puertos 80/443)
-- **Let's Encrypt** para certificados SSL automáticos
-- **HTTPS** con redirección automática desde HTTP
-- **Subdominio** configurado (`https://127.0.0.1`)
-- **3 servicios Docker:** app + nginx + certbot
 
 ### 📋 URLs disponibles:
 
 - **Desarrollo:** `http://localhost:5174`
 - **Docker básico:** `http://localhost:9778` 
-- **Infraestructura HTTPS:** `https://127.0.0.1` ← **EXTRA implementado**
+- **Infraestructura HTTPS:** `https://127.0.0.1`
 
 **Para OAuth funcional:** Configurar Google OAuth con `https://127.0.0.1`
 
 ---
 
-**Desarrollado con ❤️ por José I. Bayón**
+**Desarrollado con ❤️ por Jose I. Bayón**
