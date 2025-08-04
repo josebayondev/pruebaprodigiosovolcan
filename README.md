@@ -17,7 +17,12 @@
 ```bash
 git clone https://github.com/josebayondev/pruebaprodigiosovolcan.git
 cd login-prodigioso-volcan
-Acceder a la rama main para la primera parte de la prueba.
+Existen 3 ramas diferenciadas
+SSODocker para la primera y segunda parte de la prueba.
+NGINX para la parte extra.
+MAIN, junta ambas ramas.
+ 
+Acceder a la rama SSODocker para la primera parte de la prueba.
 ```
 
 ### 2. Instalar dependencias
