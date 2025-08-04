@@ -2,7 +2,6 @@
 
 **Proyecto de prueba técnica desarrollado por Jose I. Bayón**
 
-Aplicación React con TypeScript que implementa autenticación SSO (Single Sign-On) a través de Google OAuth, con persistencia de sesión y navegación condicional.
 
 ## 🚀 Tecnologías utilizadas
 
@@ -18,6 +17,7 @@ Aplicación React con TypeScript que implementa autenticación SSO (Single Sign-
 ```bash
 git clone https://github.com/josebayondev/pruebaprodigiosovolcan.git
 cd login-prodigioso-volcan
+Acceder a la rama main para la primera parte de la prueba.
 ```
 
 ### 2. Instalar dependencias
@@ -94,6 +94,36 @@ docker compose up
 ```
 
 **Nota:** Antes de usar Docker, configura en Google OAuth agregando `http://localhost:9778` como origen autorizado en Google Cloud Console.
+
+## EXTRA: Infraestructura con Nginx + HTTPS
+
+*Incluye nginx.conf y todos los archivos de configuración en la rama nginx.*
+
+**🚀 Pasos OBLIGATORIOS (en este orden):**
+
+```bash
+# 1. Cambiar a rama nginx
+git checkout nginx
+
+# 2. ⚠️ OBLIGATORIO: Generar certificados SSL primero
+# (El script setup-ssl.sh crea los certificados automáticamente)
+# Los certificados se crean automáticamente en certbot/ (excluidos de git)
+chmod +x scripts/setup-ssl.sh && ./scripts/setup-ssl.sh
+
+# 3. Levantar infraestructura completa
+docker-compose -f docker-compose.nginx.yml up --build
+
+# 4. Acceder a: https://127.0.0.1
+
+```
+
+### 📋 URLs disponibles:
+
+- **Desarrollo:** `http://localhost:5174`
+- **Docker básico:** `http://localhost:9778` 
+- **Infraestructura HTTPS:** `https://127.0.0.1`
+
+**Para OAuth funcional:** Configurar Google OAuth con `https://127.0.0.1`
 
 ---
 
