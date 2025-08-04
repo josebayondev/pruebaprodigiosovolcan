@@ -92,6 +92,10 @@ npm run preview  # Servidor de vista previa
 Para ejecutar la aplicación con Docker:
 
 ```bash
+# 1. Crear archivo .env.docker con tu Google Client ID
+echo "VITE_GOOGLE_CLIENT_ID=tu_google_client_id_aqui" > .env.docker
+echo "VITE_PORT=9778" >> .env.docker
+
 # Abrir Docker y después ejecutar con Docker Compose
 docker compose up
 
@@ -107,7 +111,7 @@ docker compose up
 **🚀 Pasos OBLIGATORIOS (en este orden):**
 
 ```bash
-# 1. Crear archivo .env.docker con tu Google Client ID
+# 1. Crear archivo .env.docker con tu Google Client ID (si no lo creaste cuando iniciaste docker)
 echo "VITE_GOOGLE_CLIENT_ID=tu_google_client_id_aqui" > .env.docker
 echo "VITE_PORT=9778" >> .env.docker
 
