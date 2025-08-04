@@ -1,31 +1,31 @@
 #!/bin/bash
 
-# Script para obtener certificados SSL de Let's Encrypt
-# Para prueba técnica - Proyecto Login Volcán
+# 🔒 Generador automático de certificados SSL
+# Proyecto Login Volcán - Jose I. Bayón
+# 
+# INSTRUCCIONES:
+# 1. Ejecutar: ./scripts/setup-ssl.sh
+# 2. Ejecutar: docker-compose -f docker-compose.nginx.yml up --build
+# 3. Acceder: https://127.0.0.1
 
-echo "🚀 Obteniendo certificado SSL para login.localhost..."
+# Crear directorios si no existen
+mkdir -p ./certbot/conf ./certbot/www
 
-# Crear directorios necesarios
-mkdir -p ./certbot/conf
-mkdir -p ./certbot/www
 
-# Para pruebas locales, creamos certificado auto-firmado
-echo "📝 Creando certificado auto-firmado para demostración..."
+# Generar certificado
+docker run --rm \
+    -v $(pwd)/certbot/conf:/etc/letsencrypt \
+    certbot/certbot certonly --standalone \
+    --email evaluador@test.com \
+    --agree-tos --no-eff-email --staging \
+    -d login.localhost
 
+# Crear directorios
+mkdir -p ./certbot/conf ./certbot/www
+
+# Generar certificado auto-firmado
 docker run --rm -v $(pwd)/certbot/conf:/etc/letsencrypt \
   certbot/certbot certonly --standalone \
-  --email test@example.com \
-  --agree-tos \
-  --no-eff-email \
-  --staging \
+  --email test@example.com --agree-tos --staging \
   -d login.localhost
 
-echo "✅ Certificado creado!"
-echo ""
-echo "🔧 Para dominio real, cambiar por:"
-echo "   certbot certonly --webroot -w /var/www/certbot -d login.tudominio.com"
-echo ""
-echo "📋 Pasos para producción:"
-echo "1. Cambiar 'login.localhost' por tu dominio real"
-echo "2. Configurar DNS A record apuntando a tu servidor"
-echo "3. Ejecutar: docker-compose -f docker-compose.nginx.yml up"

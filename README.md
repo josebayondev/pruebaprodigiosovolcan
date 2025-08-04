@@ -95,6 +95,47 @@ docker compose up
 
 **Nota:** Antes de usar Docker, configura en Google OAuth agregando `http://localhost:9778` como origen autorizado en Google Cloud Console.
 
+## EXTRA: Infraestructura con Nginx + HTTPS
+
+### ⚡ PARA EVALUADOR - Infraestructura HTTPS
+
+**🚀 Pasos rápidos para probar:**
+
+```bash
+# 1. Cambiar a rama nginx
+git checkout nginx
+
+# 2. Configurar subdominio local
+echo "127.0.0.1 login.localhost" | sudo tee -a /etc/hosts
+
+# 3. Generar certificados SSL (automático)
+chmod +x scripts/setup-ssl.sh && ./scripts/setup-ssl.sh
+
+# 4. Levantar infraestructura completa
+docker-compose -f docker-compose.nginx.yml up --build
+
+# 5. Acceder a: https://127.0.0.1
+```
+
+**⚠️ Nota:** Tu navegador mostrará "No seguro" porque es certificado auto-firmado. 
+Hacer clic en "Avanzado" → "Continuar" para acceder.
+
+### 🎯 Arquitectura implementada:
+
+- **Nginx** como proxy inverso (puertos 80/443)
+- **Let's Encrypt** para certificados SSL automáticos
+- **HTTPS** con redirección automática desde HTTP
+- **Subdominio** configurado (`https://127.0.0.1`)
+- **3 servicios Docker:** app + nginx + certbot
+
+### 📋 URLs disponibles:
+
+- **Desarrollo:** `http://localhost:5174`
+- **Docker básico:** `http://localhost:9778` 
+- **Infraestructura HTTPS:** `https://127.0.0.1` ← **EXTRA implementado**
+
+**Para OAuth funcional:** Configurar Google OAuth con `https://127.0.0.1`
+
 ---
 
-**Desarrollado con ❤️ por Jose I. Bayón**
+**Desarrollado con ❤️ por José I. Bayón**
