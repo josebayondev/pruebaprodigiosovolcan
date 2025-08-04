@@ -11,6 +11,10 @@ lerna-debug.log*
 .env
 .env.local
 .env.production
+.env.docker
+
+# Certificados SSL
+certbot/
 
 node_modules
 dist
